@@ -1,0 +1,52 @@
+replicaCount: 3
+
+image:
+  repository: nginxinc/nginx-unprivileged
+  pullPolicy: IfNotPresent
+  tag: "1.20"
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "example-app-sa"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: 
+  runAsNonRoot: true
+  runAsUser: 101
+
+service:
+  type: NodePort
+  nodePort: 30012
+  port: 80
+  targetPort: 8080
+
+resources:
+   limits:
+     cpu: 100m
+     memory: 128Mi
+   requests:
+     cpu: 100m
+     memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+secrets:
+  API_KEY: "test value"
