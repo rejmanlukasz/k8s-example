@@ -31,6 +31,10 @@ spec:
       serviceAccountName: {{ include "example.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: api-key
+        secret:
+          secretName: {{ include "example.fullname" . }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -43,6 +47,10 @@ spec:
                   key: API_KEY
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: api-key
+            mountPath: "/secrets"
+            readOnly: true
           ports:
             - name: http
               containerPort: 8080
