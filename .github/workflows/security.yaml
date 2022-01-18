@@ -1,0 +1,16 @@
+name: Security
+
+on: pull_request
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scan image
+        uses: anchore/scan-action@v3
+        with:
+          # hardcoded for example purpose, it should be scanning image created from the CI
+          image: "nginxinc/nginx-unprivileged:1.20"
+          fail-build: true
+          severity-cutoff: high
+          debug: true # only way to get more details why scan is failing
