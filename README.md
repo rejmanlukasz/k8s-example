@@ -1,6 +1,6 @@
 # Test app
 
-Test app deployed on k8s with helm
+Test app for k8s with deployed with helm
 
 ## Tested on:
 * kubernetes running in digital ocean - `v1.21.5`
@@ -25,4 +25,4 @@ Service is listening on nodePort `30012` (can be changed in `chart/values.yaml`)
     - you need to have your `kubectl` connected to the k8s cluster
 * pipeline
     - any tool allowing to run `helm`
-    - tools like ArgoCD
+    - GitOps tools like ArgoCD
