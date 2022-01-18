@@ -15,3 +15,6 @@ jobs:
         with:
           # hardcoded for example purpose, it should be scanning image created from the CI
           image: "nginxinc/nginx-unprivileged:1.20"
+          fail-build: true
+          severity-cutoff: critical
+          debug: true
