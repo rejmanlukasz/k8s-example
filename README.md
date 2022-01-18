@@ -22,7 +22,7 @@ Service is listening on nodePort `30012` (can be changed in `chart/values.yaml`)
     - it should scan container created from the CI rather than image directly from the Docker Hub
     - ignored the results from security scan as official image is waiting for being patched ;)
   - linting with `superliner`
-    - with default settings that should be adjusted based on the preferences
+    - default settings should be adjusted based on the preferences
 
 ## Deployment
 * manually with helm by running `helm install [NAME] chart`
