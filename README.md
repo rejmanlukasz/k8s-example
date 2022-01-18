@@ -13,8 +13,16 @@ Service is listening on nodePort `30012` (can be changed in `chart/values.yaml`)
 * using build in secrets store in k8s
 * secret is stored in git only for example purpose. Storing any secrets in git is bad idea
 * chart is missing few variables as they are not required for the example
+* will be deployed in `default` namespace
 
 ## CI:
 * GitHub Actions - easiest to use in this case
     - security scan with anchore (simplified for this example purpose, it should scan container created from the CI rather than image directly from the Docker Hub)
     - linting with superliner - with default settings that should be adjusted based on the preferences
+
+## Deployment:
+* manually with helm by running `helm install NAME chart`
+    - you need to have your `kubectl` connected to the k8s cluster
+* pipeline
+    - any tool allowing to run `helm`
+    - tools like ArgoCD
