@@ -10,9 +10,9 @@ Service is listening on nodePort `30012` (can be changed in `chart/values.yaml`)
 
 ## Assumptions
 * I ignored building the container to save time on setting up the container registry (it's only build, tag and push)
-* using build in secrets store in k8s
+* using build-in secrets store in k8s
 * secret is stored in git only for example purpose. Storing any secrets in git is bad idea
-* chart is missing few variables as they are not required for the example
+* chart is missing few variables (hardcoded in the templates) as they are not required for the example
 * will be deployed in `default` namespace
 
 ## CI
