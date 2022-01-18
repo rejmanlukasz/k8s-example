@@ -16,5 +16,12 @@ jobs:
           # hardcoded for example purpose, it should be scanning image created from the CI
           image: "nginxinc/nginx-unprivileged:1.20"
           fail-build: true
-          severity-cutoff: critical
-          debug: true
+          severity-cutoff: high
+
+      - name: upload Anchore scan SARIF report
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
+
+      - name: Inspect action SARIF report
+        run: cat ${{ steps.scan.outputs.sarif }}
