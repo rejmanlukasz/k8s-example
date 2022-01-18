@@ -17,12 +17,13 @@ Service is listening on nodePort `30012` (can be changed in `chart/values.yaml`)
 
 ## CI:
 * GitHub Actions - easiest to use in this case
-    - security scan with anchore 
+    - security scan with `anchore`
         - simplified for this example purpose, not user friendly as there is no output why the workflow failed
         - it should scan container created from the CI rather than image directly from the Docker Hub
         - ignored the results from security scan as official image is waiting for being patched ;) 
-    - linting with superliner
+    - linting with `superliner`
         - with default settings that should be adjusted based on the preferences
+        - ignored the results as linter require fine tuning 
 
 ## Deployment:
 * manually with helm by running `helm install [NAME] chart`
