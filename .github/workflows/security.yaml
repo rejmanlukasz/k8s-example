@@ -13,4 +13,4 @@ jobs:
           image: "nginxinc/nginx-unprivileged:1.20"
           fail-build: true
           severity-cutoff: high
-          debug: true
+          debug: true # only way to get more details why scan is failing
